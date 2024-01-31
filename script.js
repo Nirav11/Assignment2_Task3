@@ -73,4 +73,4 @@
           "bottom-left"
         );
       });
-    </scrip
+    </script>
