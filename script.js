@@ -23,26 +23,25 @@ require(["esri/Map", "esri/layers/CSVLayer", "esri/views/MapView", "esri/widgets
     // from the continuous color ramp in the colorStops property
 
     const renderer = {
-      type: "heatmap",
-      colorStops: [
-        { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-        { color: "#472b77", ratio: 0.083 },
-        { color: "#4e2d87", ratio: 0.166 },
-        { color: "#563098", ratio: 0.249 },
-        { color: "#5d32a8", ratio: 0.332 },
-        { color: "#6735be", ratio: 0.415 },
-        { color: "#7139d4", ratio: 0.498 },
-        { color: "#7b3ce9", ratio: 0.581 },
-        { color: "#853fff", ratio: 0.664 },
-        { color: "#a46fbf", ratio: 0.747 },
-        { color: "#c29f80", ratio: 0.83 },
-        { color: "#e0cf40", ratio: 0.913 },
-        { color: "#ffff00", ratio: 1 }
-      ],
-      maxDensity: 0.01,
-      minDensity: 0
+    type: "heatmap",
+    colorStops: [
+        { color: "rgba(173, 216, 230, 0)", ratio: 0 }, 
+        { color: "#add8e6", ratio: 0.083 },           
+        { color: "#87ceeb", ratio: 0.166 },           
+        { color: "#1e90ff", ratio: 0.249 },            
+        { color: "#0000cd", ratio: 0.332 },            
+        { color: "#00008b", ratio: 0.415 },            
+        { color: "#000080", ratio: 0.498 },            
+        { color: "#191970", ratio: 0.581 },           
+        { color: "#000033", ratio: 0.664 },            
+        { color: "#000033", ratio: 0.747 },            
+        { color: "#000033", ratio: 0.83 },             
+        { color: "#000033", ratio: 0.913 },           
+        { color: "#000033", ratio: 1 }                 
+    ],
+    maxDensity: 0.01,
+    minDensity: 0
     };
-
 
     const layer = new CSVLayer({
         url: url,
@@ -62,7 +61,7 @@ require(["esri/Map", "esri/layers/CSVLayer", "esri/views/MapView", "esri/widgets
     const view = new MapView({
       container: "viewDiv",
       center: [-90.1994, 38.6270],
-      zoom: 2,
+      zoom: 12,
       map: map
     });
 
