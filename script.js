@@ -4,7 +4,7 @@
         MapView,
         Legend
       ) => {
-        const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv";
+        var url = "https://raw.githubusercontent.com/orhuna/WebGIS_SLU_M1/main/Module%202/stl_crime_wgs_84.csv";";
 
         // Paste the url into a browser's address bar to download and view the attributes
         // in the CSV file. These attributes include:
@@ -14,8 +14,7 @@
         // * time - the time of the event
 
         const template = {
-          title: "{place}",
-          content: "Magnitude {mag} {type} hit {place} on {time}."
+          title: "Crime committed at {ILEADSStreet}"
         };
 
         // The heatmap renderer assigns each pixel in the view with
@@ -44,33 +43,16 @@
           minDensity: 0
         };
 
-        const layer = new CSVLayer({
-          url: url,
-          title: "Magnitude 2.5+ earthquakes from the last week",
-          copyright: "USGS Earthquakes",
-          popupTemplate: template,
-          renderer: renderer,
-          labelsVisible: true,
-          labelingInfo: [
-            {
-              symbol: {
-                type: "text", // autocasts as new TextSymbol()
-                color: "white",
-                font: {
-                  family: "Noto Sans",
-                  size: 8
-                },
-                haloColor: "#472b77",
-                haloSize: 0.75
-              },
-              labelPlacement: "center-center",
-              labelExpressionInfo: {
-                expression: "Text($feature.mag, '#.0')"
-              },
-              where: "mag > 5"
-            }
-          ]
-        });
+      const layer = new CSVLayer({
+        url: url,
+        title: "St. Louis Crime Heatmap",
+        copyright: "St. Louis Police Department",
+		latitudeField:"Lat",
+        longitudeField:"Lon",
+		popupTemplate: template,
+		renderer: renderer
+});
+
 
         const map = new Map({
           basemap: "gray-vector",
